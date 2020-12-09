@@ -6,7 +6,7 @@ Bundler.require
 #require classes
 require_relative '../app/models/baseball'
 
-
+ENV['SINATRA_ENV'] ||= 'development'
 
 
 
@@ -14,7 +14,7 @@ require_relative '../app/models/baseball'
 #connect to a data base 
 ActiveRecord::Base.establish_connection({ 
     adapter: 'sqlite3',
-    database: 'bd/development.sqlite3'
+    database: 'bd/development.sqlite'
 })
 
 
