@@ -4,9 +4,12 @@ Bundler.require
 
 
 #require classes
-require_relative '../app/models/baseball'
+#require_relative '../app/models/baseball'
+
+require_all 'app'
 
 ENV['SINATRA_ENV'] ||= 'development'
+
 
 
 

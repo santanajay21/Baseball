@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_235257) do
+ActiveRecord::Schema.define(version: 2020_12_09_232406) do
 
   create_table "baseballs", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.integer "year"
     t.boolean "popular"
     t.text "discription"
+    t.integer "team_id"
+    t.integer "player_id"
   end
 
 end
