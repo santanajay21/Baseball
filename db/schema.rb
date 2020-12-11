@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_232406) do
+ActiveRecord::Schema.define(version: 2020_12_11_174500) do
 
-  create_table "baseballs", force: :cascade do |t|
+  create_table "players", force: :cascade do |t|
     t.string "name"
-    t.integer "year"
-    t.boolean "popular"
-    t.text "discription"
-    t.integer "team_id"
-    t.integer "player_id"
+    t.integer "batting_avarage"
+    t.integer "height"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.string "password_digest"
   end
 
 end
