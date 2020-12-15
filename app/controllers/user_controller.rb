@@ -25,6 +25,24 @@ class UserController < ApplicationController
         #redirect them some where else
     end
 
+    get '/login' do #show the form 
+        erb :"/users/login"
+    end
+
+    post '/login' do #process form 
+        user = User.find_by_user_name(params[:user_name])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/players'
+        else
+            redirect '/login'
+        end
+
+        #binding.pry
+    end
+
+
+
     get '/logout' do
         session.clear
         redirect '/signup'

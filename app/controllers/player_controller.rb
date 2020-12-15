@@ -8,6 +8,9 @@ class PlayerController < ApplicationController
 
     get '/players/new' do
         #display new player(creats action)
+        if !logged_in?
+            redirect '/login'
+        end
         erb :"players/new"
     end
 
@@ -21,15 +24,23 @@ class PlayerController < ApplicationController
     
     post '/players' do
         #create new player(create action )
-        player = Player.new(params)
+        if !logged_in?
+            redirect '/login'
+        end
+        player = current_user.players.build(params)
+        #player.user_id = session[:user_id]
+        #player = Player.new(params)
+        #player.user = current_user
         player.save
-        redirect '/players'
+        redirect '/players/new'
     end 
 
     get '/players/:id/edit' do
         @player = Player.find(params["id"])
-        #display the edit view (update)
-        erb :"players/edit"
+        if @player.user != current_user
+            redirect '/players'
+        end
+            erb :"/players/edit"  
 
     end
 
@@ -46,8 +57,21 @@ class PlayerController < ApplicationController
     #delete one movie 
     delete '/players/:id' do 
         @player = Player.find(params["id"])
+        if @player.user != current_user
+            redirect '/players'
+        end
         @player.destroy
         redirect '/players'
         #binding.pry
     end 
+
+
+
+    private 
+    def redirect_if_not_authorized
+        if @player.user != current_user
+            redirect '/players'
+        end
+    end
+    
 end

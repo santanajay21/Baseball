@@ -1,11 +1,14 @@
 <h2>Show page </h2>
 <h3>Name: <%= @player.name  %> </h3>
+
+
+
+
+<% if @player.user == current_user %>
 <a href="/players/<%=@player.id%>/edit">Edit</a>
-
-
-
 
 <form method="POST" action="/players/<%= @player.id%>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="DELETE PLAYER">
     </form>
+    <% end %>
