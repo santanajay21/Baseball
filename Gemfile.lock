@@ -73,6 +73,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemodel
   activerecord (~> 5.2.4)
   bcrypt
   pry

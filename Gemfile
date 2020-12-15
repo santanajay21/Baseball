@@ -12,5 +12,6 @@ gem 'thin'
 gem 'shotgun'
 gem 'tux'
 gem 'bcrypt'
+gem 'activemodel'
 
 
