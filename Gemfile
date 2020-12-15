@@ -11,4 +11,6 @@ gem 'require_all'
 gem 'thin'
 gem 'shotgun'
 gem 'tux'
+gem 'bcrypt'
+
 

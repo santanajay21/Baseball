@@ -1,5 +1,6 @@
 <h1>Baseball Player!</h1>
 <h2>Index View</h2>
 <% @players.each do |b| %>
-   <%= b.name %>
+  
+   <%=b.id%> - <a href="/players/<%=b.id%>"><%= b.name %></a> <br>
    <% end %>
