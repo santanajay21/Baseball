@@ -1,9 +1,9 @@
 <h1>Baseball Player!</h1>
 <h2>Index View</h2>
 <%if logged_in? %>
-<h3>Logged in user_name: <%=session[:user_name]%></h3>
+<h3>Logged in user_name: <%=current_user.user_name%></h3>
 <% end %>
 <% @players.each do |b| %>
   
-   <%=b.id%> - <a href="/players/<%=b.id%>"><%= b.name %></a> <br>
+    <a href="/players/<%=b.id%>"><%= b.name %></a> <br>
    <% end %>

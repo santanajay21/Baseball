@@ -47,7 +47,9 @@ class PlayerController < ApplicationController
     #update the data base based on the edit form 
     put '/players/:id' do 
         @player = Player.find(params["id"])
-        #@player.update(params["name"])
+        if @player.user != current_user
+            redirect '/players'
+        end
         @player.update(params["player"])
         #binding.pry
         redirect "/players/#{@player.id}"

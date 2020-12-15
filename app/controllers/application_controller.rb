@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
 
 
     get '/' do
-        "Welcome in !"
+        erb :"/welcome"
     end
 
     helpers do 
@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
             !!current_user
         end
         def current_user
-           @current_user ||= User.find(session[:user_name]) if session[:user_name]
+           @current_user ||= User.find(session[:user_id]) if session[:user_id]
         end
     end
 
