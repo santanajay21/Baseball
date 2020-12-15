@@ -73,5 +73,5 @@ class PlayerController < ApplicationController
             redirect '/players'
         end
     end
-    
+
 end
