@@ -15,7 +15,7 @@ class PlayerController < ApplicationController
     end
 
     get '/players/:id' do 
-        #display show view, get one movie(read info)
+        #display show view, get one player(read info)
         #binding.pry 
         @player = Player.find(params["id"])
         erb :"players/show"

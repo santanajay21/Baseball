@@ -11,12 +11,13 @@ class UserController < ApplicationController
         #binding.pry
         u = User.new(user_name: params["user_name"], password: params["password"]) #params is a hash with key value pairs
         #make sure the user signed up with valid data
-        if u.user_id.blank? || u.password.blank? || User.find_by_user_id(params["user_id"])
+        if u.user_name.blank? || u.password.blank? || User.find_by_user_name(params["user_name"])
+            #binding.pry 
             #invalid log in attempt 
             redirect '/signup'
         else
             u.save
-            session[:user_id] = u.user.id
+            session[:user_id] = u.id
             redirect '/players'
             #valid attempt 
             #log them in 
